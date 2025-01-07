@@ -1,14 +1,18 @@
 //Uma classe
 export class cliente {
-    nome;
-    _cpf;
-
-    get cpf(){
+    //metodo construtor
+    constructor(nome,cpf,senha){
+        this.nome=nome;
+        this._cpf = cpf;
+        this._senha=senha;
+    }
+    autenticar(){
+        return true;
+    }
+       get cpf(){
        return this._cpf;
     }
-
-    constructor(nome,cpf){
-        this.nome=nome;
-        this.cpf=cpf;
+    autenticar(){
+        return true;
     }
 }

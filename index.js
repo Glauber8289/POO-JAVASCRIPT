@@ -1,22 +1,16 @@
 import {cliente} from "./Cliente.js";
-import{ContaCorrente}from "./ContaCorrente.js"
-//Um objeto
-const cliente1= new cliente()
- cliente1.nome= "Rogerio"
- cliente1.cpf=12356
+import { SistemaAutenticacao } from "./SistemadeAutenticacao.js";
+import { Gerente } from "./Funcionarios/Gerente.js";
+import { Diretor } from "./Funcionarios/Diretor.js";
 
-//Um objeto
- const contaCorrente1 = new ContaCorrente();
- contaCorrente1.agencia=1001;
- contaCorrente1.depositar(500);
- contaCorrente1.cliente= cliente1;
+const diretor =  new Diretor("Rodrigo", 10000, 12345678900);
+diretor.cadastrarSenha("123456")
+const gerente =  new Gerente("Ricardo",  5000, 12378945601);
+gerente.cadastrarSenha("123");
 
+const gerenteEstaLogado = SistemaAutenticacao.login(gerente, "123");
+const diretorEstaLogado = SistemaAutenticacao.login(diretor, "123456");
 
- const contaCorrente2 = new ContaCorrente();
- contaCorrente2.agencia=1500;
- contaCorrente2.depositar(1000);
- contaCorrente2.sacar(200);
- contaCorrente2.cliente="Paulo";
- contaCorrente2.transferir(300,contaCorrente1);
- console.log(contaCorrente2,contaCorrente1);
+console.log(gerenteEstaLogado, diretorEstaLogado);
+
 
