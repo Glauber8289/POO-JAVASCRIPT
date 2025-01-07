@@ -16,6 +16,9 @@ export class ContaCorrente {
     }
     
     _saldo=0;
+    get saldo(){
+        return this.saldo;
+    }
     
     //Um método  
     sacar(valor) {
